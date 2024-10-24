@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-size: 1rem;
         }
 
         :root {
@@ -34,7 +35,7 @@
             max-width: 900px;
             margin: auto;
             background: white;
-            padding: 40px 40px;
+            padding: 40px 20px;
             border: 1px solid #ccc;
         }
 
@@ -56,7 +57,7 @@
 
         .invoice-info {
             font-size: 0.9em;
-            width: 50%;
+            width: 47%;
             border: 2px solid var(--tableTopColor);
         }
 
@@ -66,7 +67,7 @@
         }
 
         .invoice-info td {
-            padding: 5px 10px;
+            padding: 10px 10px;
         }
 
         .items,
@@ -187,11 +188,13 @@
         <header>
             <div style="font-size: 0.9em;">
                 <h2>Your Company</h2>
-                <p>1725 Slough Ave., demo<br>
+                <p style="line-height: 1.5;">
+                    1725 Slough Ave., demo<br>
                     Scranton, Pennsylvania, 18540, United States<br>
                     <span class="bold">Mobile:</span> 89665 222<br>
                     <span class="bold">Email:</span> info@yourcompany.example.com
                 </p>
+
             </div>
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="150" height="50" viewBox="0 0 600 191">
@@ -217,7 +220,7 @@
         <div class="invoice-details">
             <div style="font-size: 0.9em;">
                 <h3 style="color: var(--invoiceTextColor);">Invoice To:</h3>
-                <p>Camptocamp, Ayaan Agarwal<br>
+                <p style="line-height: 1.5;">Camptocamp, Ayaan Agarwal<br>
                     93, Press Avenue, demo<br>
                     Le Bourget du Lac, 73377, France<br>
                     <span class="bold">Email:</span> ayaan.agarwal@bestdesigners.example.com
@@ -226,7 +229,8 @@
             <div class="invoice-info">
                 <table>
                     <tr class="tablecolor">
-                        <td><strong class="start textcolor">Invoice No:</strong></td>
+                        <td><strong class="start textcolor">Invoice
+                                No:</strong></td>
                         <td class="end textcolor">INV/2016/0013</td>
                     </tr>
                     <tr>
@@ -247,7 +251,6 @@
                     </tr>
                 </table>
             </div>
-
         </div>
 
         <table class="items">
