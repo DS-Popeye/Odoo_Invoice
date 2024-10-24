@@ -44,14 +44,6 @@
             margin-bottom: 20px;
         }
 
-        .company-info {
-            font-size: 0.9em;
-        }
-
-        .logo img {
-            max-width: 100px;
-        }
-
         .invoice-details {
             display: flex;
             justify-content: space-between;
@@ -60,10 +52,6 @@
             padding: 20px 10px;
             border-top: 2px solid var(--invoiceTextColor);
             border-bottom: 2px solid var(--invoiceTextColor);
-        }
-
-        .to {
-            font-size: 0.9em;
         }
 
         .invoice-info {
@@ -197,7 +185,7 @@
 
     <div class="invoice-container">
         <header>
-            <div class="company-info">
+            <div style="font-size: 0.9em;">
                 <h2>Your Company</h2>
                 <p>1725 Slough Ave., demo<br>
                     Scranton, Pennsylvania, 18540, United States<br>
@@ -205,7 +193,7 @@
                     <span class="bold">Email:</span> info@yourcompany.example.com
                 </p>
             </div>
-            <div class="logo">
+            <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="150" height="50" viewBox="0 0 600 191">
                     <circle cx="527.5" cy="118.4" r="72.4" fill="#888" />
                     <path
@@ -227,7 +215,7 @@
 
 
         <div class="invoice-details">
-            <div class="to">
+            <div style="font-size: 0.9em;">
                 <h3 style="color: var(--invoiceTextColor);">Invoice To:</h3>
                 <p>Camptocamp, Ayaan Agarwal<br>
                     93, Press Avenue, demo<br>
@@ -279,7 +267,7 @@
                     <td>[A2325] iPad Retina Display 7.9-Inch (Diagonal) LED-Backlit, 128GB Dual-Core A5 With Quad-Core
                         Graphics FaceTime HD Cameta, 1.2 MP Photos</td>
                     <td>1.000</td>
-                    <td>$800.40</td>
+                    <td>800.40</td>
                     <td></td>
                     <td>$800.40</td>
                 </tr>
@@ -287,7 +275,7 @@
                     <td>2</td>
                     <td>[CARD] Graphics Card</td>
                     <td>1.000</td>
-                    <td>$885.00</td>
+                    <td>885.00</td>
                     <td></td>
                     <td>$885.00</td>
                 </tr>
@@ -295,7 +283,7 @@
                     <td>3</td>
                     <td>[PRINT] Printer, All-In-One</td>
                     <td>1.000</td>
-                    <td>$4,410.00</td>
+                    <td>4,410.00</td>
                     <td></td>
                     <td>$4,410.00</td>
                 </tr>
@@ -360,13 +348,11 @@
                 <li><strong>Fiscal Position Remark:</strong> FY 2016</li>
             </ul><br>
             <hr>
-
             <p style="text-align: center;">Phone: +1 555 123 8069 | Email: info@yourcompany.example.com | Website:
                 http://www.example.com</p>
             <p style="text-align: center;">Page: 1 / 1</p>
         </footer>
     </div>
-
 </body>
 
 </html>
