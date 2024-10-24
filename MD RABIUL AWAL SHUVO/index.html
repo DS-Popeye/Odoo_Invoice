@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Template</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --tableOddColor: #FFFFFF;
+            --tableEvenColor: #E6E8ED;
+            --logoNameColor2: #4D4D4F;
+            --logoNameColor1: #A23153;
+            --tableTopColor: #3f51a7;
+            --invoiceTextColor: #36447b;
+            --textColor: #333;
+        }
+
+        body {
+            font-family: Verdana;
+            background-color: #f9f9f9;
+            color: var(--textColor);
+            padding: 40px;
+        }
+
+        .invoice-container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 40px 40px;
+            border: 1px solid #ccc;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .company-info {
+            font-size: 0.9em;
+        }
+
+        .logo img {
+            max-width: 100px;
+        }
+
+        .invoice-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            background-color: var(--tableEvenColor);
+            padding: 20px 10px;
+            border-top: 2px solid var(--invoiceTextColor);
+            border-bottom: 2px solid var(--invoiceTextColor);
+        }
+
+        .to {
+            font-size: 0.9em;
+        }
+
+        .invoice-info {
+            font-size: 0.9em;
+            width: 50%;
+            border: 2px solid var(--tableTopColor);
+        }
+
+        .invoice-info table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .invoice-info td {
+            padding: 5px 10px;
+        }
+
+        .items,
+        .payment-history table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        .items th {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .items td,
+        .payment-history td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .totals {
+            margin-left: 40%;
+            width: 60%;
+            border-collapse: collapse;
+        }
+
+        .totals td {
+            padding: 8px;
+            text-align: right;
+        }
+
+        .totals td:first-child {
+            text-align: left;
+        }
+
+
+        .totals tr td {
+            border: none;
+            border-bottom: 1px solid #383535;
+        }
+
+
+        footer {
+            font-size: 0.8em;
+            padding-top: 100px;
+            margin-top: 20px;
+        }
+
+
+        .payment-history table {
+            width: 100%;
+            text-align: center;
+        }
+
+        .payment-history th,
+        .payment-history td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .payment-history h3 {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .start {
+            color: #333;
+            font-weight: bold;
+            text-align: left;
+            width: 50%;
+        }
+
+        .end {
+            color: #555;
+            text-align: right;
+            width: 50%;
+        }
+
+        .tablecolor {
+            background-color: var(--tableTopColor);
+        }
+
+        .textcolor {
+            color: var(--tableEvenColor);
+        }
+
+        .tborder {
+            border: none;
+        }
+
+        .evenbgcolor {
+            background-color: var(--tableEvenColor);
+        }
+
+        .oddbgcolor {
+            background-color: var(--tableOddColor);
+        }
+
+        .info-list {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .info-list li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="invoice-container">
+        <header>
+            <div class="company-info">
+                <h2>Your Company</h2>
+                <p>1725 Slough Ave., demo<br>
+                    Scranton, Pennsylvania, 18540, United States<br>
+                    <span class="bold">Mobile:</span> 89665 222<br>
+                    <span class="bold">Email:</span> info@yourcompany.example.com
+                </p>
+            </div>
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="150" height="50" viewBox="0 0 600 191">
+                    <circle cx="527.5" cy="118.4" r="72.4" fill="#888" />
+                    <path
+                        d="M527.5 161.1c23.6 0 42.7-19.1 42.7-42.7s-19.1-42.7-42.7-42.7-42.7 19.1-42.7 42.7 19.1 42.7 42.7 42.7z"
+                        fill="#fff" />
+                    <circle cx="374" cy="118.4" r="72.4" fill="#888" />
+                    <path
+                        d="M374 161.1c23.6 0 42.7-19.1 42.7-42.7S397.6 75.7 374 75.7s-42.7 19.1-42.7 42.7 19.1 42.7 42.7 42.7z"
+                        fill="#fff" />
+                    <path
+                        d="M294.9 117.8v.6c0 40-32.4 72.4-72.4 72.4s-72.4-32.4-72.4-72.4S182.5 46 222.5 46c16.4 0 31.5 5.5 43.7 14.6V14.4A14.34 14.34 0 0 1 280.6 0c7.9 0 14.4 6.5 14.4 14.4v102.7c0 .2 0 .5-.1.7z"
+                        fill="#888" />
+                    <circle cx="222.5" cy="118.4" r="42.7" fill="#fff" />
+                    <circle cx="72.4" cy="118.2" r="72.4" fill="#9c5789" />
+                    <circle cx="71.7" cy="118.5" r="42.7" fill="#fff" />
+                </svg>
+            </div>
+        </header>
+
+
+        <div class="invoice-details">
+            <div class="to">
+                <h3 style="color: var(--invoiceTextColor);">Invoice To:</h3>
+                <p>Camptocamp, Ayaan Agarwal<br>
+                    93, Press Avenue, demo<br>
+                    Le Bourget du Lac, 73377, France<br>
+                    <span class="bold">Email:</span> ayaan.agarwal@bestdesigners.example.com
+                </p>
+            </div>
+            <div class="invoice-info">
+                <table>
+                    <tr class="tablecolor">
+                        <td><strong class="start textcolor">Invoice No:</strong></td>
+                        <td class="end textcolor">INV/2016/0013</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="start">Invoice Date:</strong></td>
+                        <td class="end">20-04-16</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="start">SO:</strong></td>
+                        <td class="end">SO013</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="start">Order Date:</strong></td>
+                        <td class="end">20-04-16</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="start">Due Date:</strong></td>
+                        <td class="end">31-05-16</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <table class="items">
+            <thead>
+                <tr class="tablecolor textcolor tborder">
+                    <th>Sr.</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Taxes</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>[A2325] iPad Retina Display 7.9-Inch (Diagonal) LED-Backlit, 128GB Dual-Core A5 With Quad-Core
+                        Graphics FaceTime HD Cameta, 1.2 MP Photos</td>
+                    <td>1.000</td>
+                    <td>$800.40</td>
+                    <td></td>
+                    <td>$800.40</td>
+                </tr>
+                <tr class="evenbgcolor">
+                    <td>2</td>
+                    <td>[CARD] Graphics Card</td>
+                    <td>1.000</td>
+                    <td>$885.00</td>
+                    <td></td>
+                    <td>$885.00</td>
+                </tr>
+                <tr class="oddbgcolor">
+                    <td>3</td>
+                    <td>[PRINT] Printer, All-In-One</td>
+                    <td>1.000</td>
+                    <td>$4,410.00</td>
+                    <td></td>
+                    <td>$4,410.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="totals tborder">
+            <tbody>
+                <tr>
+                    <td><strong>SubTotal:</strong></td>
+                    <td><strong>$6,095.40</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Taxes:</strong></td>
+                    <td><strong>$0.00</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Total:</strong></td>
+                    <td><strong>$6,095.40</strong></td>
+                </tr>
+            </tbody>
+
+        </table>
+
+
+        <div class="payment-history">
+            <hr>
+            <h3>Payment History</h3>
+            <table>
+                <thead>
+                    <tr class="tablecolor textcolor tborder">
+                        <th>Sr.</th>
+                        <th>Date</th>
+                        <th>Method</th>
+                        <th>Ref.</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>20-04-16</td>
+                        <td>Cash</td>
+                        <td>CSH1/2016/0005</td>
+                        <td>$2,000.00</td>
+                    </tr>
+                    <tr class="evenbgcolor">
+                        <td>2</td>
+                        <td>20-04-16</td>
+                        <td>Bank</td>
+                        <td>BNK1/2016/0006</td>
+                        <td>$95.40</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <ul class="info-list">
+                <li><strong>Payment Term:</strong> End of Following Month</li>
+                <li><strong>Comment:</strong> Invoice Comment For Test</li>
+                <li><strong>Fiscal Position Remark:</strong> FY 2016</li>
+            </ul><br>
+            <hr>
+
+            <p style="text-align: center;">Phone: +1 555 123 8069 | Email: info@yourcompany.example.com | Website:
+                http://www.example.com</p>
+            <p style="text-align: center;">Page: 1 / 1</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
