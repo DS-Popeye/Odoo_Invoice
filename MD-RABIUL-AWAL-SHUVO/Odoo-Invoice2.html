@@ -20,14 +20,14 @@
             --invoiceColor: #f2f2f2;
             --logoNameColor2: #4D4D4F;
             --logoNameColor1: #A23153;
-            /* --tableTopColor: #3f51a7; */
             --tableTopColor: #A24689;
-            --invoiceTextColor: #36447b;
+            --invoiceTextColor: #A24689;
+            --invoiceTableColor: #A24689;
             --textColor: #333;
         }
 
         body {
-            font-family: Verdana;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f9f9f9;
             color: var(--textColor);
             padding: 10px;
@@ -53,14 +53,14 @@
             margin-bottom: 20px;
             background-color: var(--invoiceColor);
             padding: 20px 10px;
-            border-top: 2px solid var(--invoiceTextColor);
-            border-bottom: 2px solid var(--invoiceTextColor);
+            border-top: 2px solid var(--invoiceTableColor);
+            border-bottom: 2px solid var(--invoiceTableColor);
         }
 
         .invoice-info {
             font-size: 0.9em;
             width: 47%;
-            border: 2px solid var(--tableTopColor);
+            /* border: 2px solid var(--tableTopColor); */
         }
 
         .invoice-info table {
@@ -109,7 +109,7 @@
 
         .totals tr td {
             border: none;
-            border-bottom: 1px solid #383535;
+            border-bottom: 2px solid gray;
         }
 
 
@@ -187,8 +187,8 @@
 <body>
 
     <div class="invoice-container">
-        <header>
-            <div style="font-size: 0.9em;">
+        <header style="display: flex; flex-direction: row-reverse;">
+            <div style="font-size: 0.9em; text-align: end;">
                 <h2>Your Company</h2>
                 <p style="line-height: 1.5;">
                     1725 Slough Ave., demo<br>
@@ -230,26 +230,26 @@
             </div>
             <div class="invoice-info">
                 <table>
-                    <tr class="tablecolor">
+                    <tr class="tablecolor" style="border-bottom: 5px solid white;">
                         <td><strong class="start textcolor">Invoice
                                 No:</strong></td>
                         <td class="end textcolor">INV/2016/0013</td>
                     </tr>
-                    <tr>
-                        <td><strong class="start">Invoice Date:</strong></td>
-                        <td class="end">20-04-16</td>
+                    <tr class="tablecolor">
+                        <td><strong class="start textcolor">Invoice Date:</strong></td>
+                        <td class="end textcolor">20-04-16</td>
                     </tr>
-                    <tr>
-                        <td><strong class="start">SO:</strong></td>
-                        <td class="end">SO013</td>
+                    <tr class="tablecolor">
+                        <td><strong class="start textcolor">SO:</strong></td>
+                        <td class="end textcolor">SO013</td>
                     </tr>
-                    <tr>
-                        <td><strong class="start">Order Date:</strong></td>
-                        <td class="end">20-04-16</td>
+                    <tr class="tablecolor">
+                        <td><strong class="start textcolor">Order Date:</strong></td>
+                        <td class="end textcolor">20-04-16</td>
                     </tr>
-                    <tr>
-                        <td><strong class="start">Due Date:</strong></td>
-                        <td class="end">31-05-16</td>
+                    <tr class="tablecolor">
+                        <td><strong class="start textcolor">Due Date:</strong></td>
+                        <td class="end textcolor">31-05-16</td>
                     </tr>
                 </table>
             </div>
@@ -315,7 +315,7 @@
 
 
         <div class="payment-history">
-            <hr>
+            <hr style="height:2px; border:none; background-color: gray; margin-top: -2px;">
             <h3>Payment History</h3>
             <table>
                 <thead>
